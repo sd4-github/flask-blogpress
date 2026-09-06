@@ -1,0 +1,32 @@
+# =============================================================================
+# BlogPress - Flask project dependencies
+# =============================================================================
+# Flask's philosophy is "micro-framework": the core is small and you pick
+# extensions as needed. Each extension below is one you'd list in an interview.
+
+# ---- Core web framework ---------------------------------------------------
+Flask==3.0.3               # micro-framework (routing, WSGI)
+gunicorn==22.0.0           # production WSGI server (Flask's built-in is dev-only)
+
+# ---- Database / ORM --------------------------------------------------------
+SQLAlchemy==2.0.30         # ORM (same engine as FastAPI project)
+Flask-SQLAlchemy==3.1.1    # Flask integration: db.Model, easy session mgmt
+psycopg2-binary==2.9.9     # Postgres driver
+Flask-Migrate==4.0.7       # Alembic migrations wrapped for Flask (python cli db migrate)
+alembic==1.13.1            # migration engine
+
+# ---- Auth (session-based) ---------------------------------------------------
+Flask-Login==0.6.3         # user session management: login_user, login_required
+Werkzeug==3.0.3            # comes with Flask; used for password hashing (generate_password_hash)
+
+# ---- Forms / validation -----------------------------------------------------
+Flask-WTF==1.2.1           # CSRF protection + forms (even for pure JSON APIs, CSRF matters)
+marshmallow==3.21.3        # serialization/deserialization for the JSON REST API
+webargs==8.4.0             # parse/validate request args against Marshmallow schemas
+
+# ---- Async tasks -------------------------------------------------------------
+celery==5.4.0              # distributed task queue (broker = Redis)
+redis==5.0.4               # Redis client
+
+# ---- Testing -----------------------------------------------------------------
+pytest==8.2.2              # test runner
